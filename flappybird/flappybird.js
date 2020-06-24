@@ -91,7 +91,7 @@ const bird = {
     frame : 0,
 
     gravity : 0.25,
-    jump : 6.6,
+    jump : 4.6,
     speed : 0,
     rotation : 0,
 
@@ -234,7 +234,7 @@ const pipes = {
             p.x -= this.dx;
 
             if(p.x + this.w <= 0){
-                
+                this.position.shift()
             }
         }
     }
