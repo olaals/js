@@ -1,0 +1,27 @@
+
+body{
+    background: rgb(121, 121, 121);
+}
+
+header{
+    background: white;
+}
+
+header > h1 {
+    color: #25272E;
+    text-align: center;
+    font-family: Asap, sans-serif;
+    padding: 20px;
+}
+
+
+.box{
+    background: rgb(218, 218, 218);
+    padding: 10px;
+    margin: 10px 0;
+    border: 10px;
+}
+
+.link{
+    text-align: center;
+}

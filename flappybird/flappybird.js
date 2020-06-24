@@ -29,6 +29,8 @@ cvs.addEventListener("click", function(evt){
             break;
         case state.over:
             state.current = state.getReady;
+            pipes.position = [];
+            score.reset();
             break;
     }
 })
@@ -87,6 +89,8 @@ const bird = {
     y : 150,
     w : 34,
     h : 26,
+
+    radius : 12,
 
     frame : 0,
 
@@ -230,13 +234,67 @@ const pipes = {
         }
         for(let i = 0; i < this.position.length; i++){
             let p = this.position[i];
+            
+            
+            let bottomPipeYPos = p.y + this.h + this.gap;
 
+            // COLLISION DETECTION
+            //TOP PIPE
+            if(bird.x + bird.radius > p.x && bird.x - bird.radius < p.x + this.w &&
+                bird.y + bird.radius > p.y && bird.y - bird.radius < p.y + this.h){
+                    state.current = state.over;
+                }
+            
+            //BOTTOM PIPE
+            if(bird.x + bird.radius > p.x && bird.x - bird.radius < p.x + this.w &&
+                bird.y + bird.radius > bottomPipeYPos && bird.y - bird.radius <
+                bottomPipeYPos + this.h){
+                    state.current = state.over;
+                }
+            
+
+
+            // MOVE THE PIPE
             p.x -= this.dx;
 
             if(p.x + this.w <= 0){
                 this.position.shift()
+                score.value += 1;
+                score.best = Math.max(score.value, score.best);
+                localStorage.setItem("best", score.best);
             }
         }
+    }
+}
+
+// SCORE 
+const score = {
+    best : parseInt(localStorage.getItem("best")) || 0,
+    value : 0,
+
+    draw : function(){
+        ctx.fillStyle = "#FFF";
+        ctx.strokeStyle = "#000";
+
+        if(state.current == state.game){
+            ctx.lineWidth = 2;
+            ctx.font = "35px Teko";
+            ctx.fillText(this.value, cvs.width/2, 50);
+            ctx.strokeText(this.value, cvs.width/2, 50);
+        }else if(state.current == state.over){
+            // SCORE VALUE
+            ctx.lineWidth = 2;
+            ctx.font = "25px Teko";
+            ctx.fillText(this.value, 225, 186);
+            ctx.strokeText(this.value, 225, 186);
+
+            ctx.fillText(this.best, 225, 228);
+            ctx.strokeText(this.best, 225, 228);
+        }
+    },
+
+    reset : function (){
+      this.value = 0;  
     }
 }
 
@@ -252,6 +310,7 @@ function draw(){
     bird.draw();
     getReady.draw();
     gameOver.draw();
+    score.draw();
 }
 
 
