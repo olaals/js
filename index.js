@@ -1,1 +1,0 @@
-document.body.innerHTML = "Added with index.js"
