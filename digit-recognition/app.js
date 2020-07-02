@@ -25,7 +25,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     // Configuration options go here
-    options: {}
+    options: {
+        legend:{
+            labels:{
+                fontColor: 'black',
+                fontSize: 12
+            }
+        },
+        scales: {
+            xAxes: [{
+                ticks: {
+                    fontSize: 25
+                }
+            }]
+        }
+    }
 });
 
     console.log(chart.data.datasets[0].data)
