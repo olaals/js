@@ -34,6 +34,8 @@ function injectCanvas(width, height){
     overlay_canvas.style.position = "fixed"
     overlay_canvas.style.top = "0"
     overlay_canvas.style.left = "0"
+    overlay_canvas.style.width = "inherit"
+    overlay_canvas.style.height = "inherit"
     overlay_canvas.width = width
     overlay_canvas.height = height
     //overlay_canvas.style.width = "100%"
