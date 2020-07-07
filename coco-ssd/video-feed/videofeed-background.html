@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        #container { position: relative; }
+        .canvas { position: absolute; top: 0; left: 0; }
+        .video {position: absolute}
+    </style>
+    <script src="reimg.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"> </script>
+    <!-- Load the coco-ssd model. -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"> </script>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="aframe-ar.js"></script>
+</head>
+<body id="container">
+    <a-scene id="scene" embedded></a-scene>>
+    <!--canvas id="myCanvas" width="300" height="300"></canvas-->
+    <script src="access-video.js"></script>
+    <script src="predict.js"></script>
+</body>
+</html>
