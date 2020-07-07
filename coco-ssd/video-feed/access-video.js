@@ -37,10 +37,12 @@ function injectCanvas(width, height){
     overlay_canvas.style.left = "0"
     overlay_canvas.style.width = "inherit"
     overlay_canvas.style.height = "inherit"
-    overlay_canvas.width = video.getBoundingClientRect().width
-    overlay_canvas.height = video.getBoundingClientRect().width
+    overlay_canvas.style.display = "block"
+    overlay_canvas.width = window.innerWidth 
+    overlay_canvas.height = window.innerHeight
     //overlay_canvas.style.width = "100%"
     //overlay_canvas.style.width = "100%"
+
     //overlay_ctx.globalAlpha = 0.5
     document.body.append(overlay_canvas)
     return overlay_canvas

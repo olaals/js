@@ -41,10 +41,10 @@ setTimeout(function(){
         });
 
         setTimeout(draw, 1/frameRate, video, canvas, overlay_canvas, context, frameRate, model);
-        canvas.width = video.getBoundingClientRect().width
-        canvas.height = video.getBoundingClientRect().height
-        overlay_canvas.width = video.getBoundingClientRect().width
-        overlay_canvas.height = video.getBoundingClientRect().height
+        canvas.width = window.innerWidth
+        canvas.height = window.innerHeight
+        overlay_canvas.width = window.innerWidth
+        overlay_canvas.height = window.innerHeight 
     }
 
 
