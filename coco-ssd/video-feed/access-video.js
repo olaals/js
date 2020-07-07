@@ -31,7 +31,7 @@ function injectCanvas(width, height){
     overlay_canvas = document.createElement("canvas")
     overlay_canvas.id = "overlay_canvas"
     overlay_ctx = overlay_canvas.getContext('2d')
-    overlay_canvas.style.position = "absolute"
+    overlay_canvas.style.position = "fixed"
     overlay_canvas.style.top = "0"
     overlay_canvas.style.left = "0"
     overlay_canvas.width = width
